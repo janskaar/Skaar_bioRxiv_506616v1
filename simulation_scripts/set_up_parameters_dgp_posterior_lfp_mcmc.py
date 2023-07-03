@@ -4,7 +4,7 @@ import os, pickle
 import numpy as np
 from nest_parameters import NEST_PSET
 
-posterior_dir = os.path.join("..", "train_posterior_distributions", "mcmc_posterior_samples_dgp")
+posterior_dir = os.path.join("..", "train_posterior_distributions", "mcmc_posterior_samples_lfp_2ch_dgp")
 # Add the random varying parameters
 PSET = NEST_PSET.copy()
 
@@ -31,7 +31,7 @@ varying_parameters[:,5] = np.around(varying_parameters[:,5], 1)
 PSET['simtime'] = 10500.
 
 # set up directory structure
-savefolder = os.path.join('./brunel_simulations_dgp_posterior_mcmc/')
+savefolder = os.path.join('./brunel_simulations_dgp_posterior_lfp_2ch_mcmc/')
 parameterset_dest = os.path.join(savefolder, 'parameters')
 nest_output = os.path.join(savefolder, 'nest_output')
 

@@ -4,7 +4,7 @@ import os, pickle
 import numpy as np
 from nest_parameters import NEST_PSET
 
-posterior_dir = os.path.join("..", "train_posterior_distributions", "mcmc_posterior_samples_dgp")
+posterior_dir = os.path.join("..", "train_posterior_distributions", "mcmc_posterior_samples_maf")
 # Add the random varying parameters
 PSET = NEST_PSET.copy()
 
@@ -16,6 +16,7 @@ for i in range(100):
     indices = np.random.choice(np.arange(len(samples)), replace=False, size=50)
     varying_parameters.append(samples[indices])
 varying_parameters = np.concatenate(varying_parameters, axis=0)
+
 # max/min differences for [eta, g, tausyn, taumem, delay, t_ref, Csyn, theta, Cmem, Vreset]
 deltas = np.array([[2.5, 3.5, 7., 15., 3.9, 5.0, 75., 10., 200., 10.]])
 
@@ -31,7 +32,7 @@ varying_parameters[:,5] = np.around(varying_parameters[:,5], 1)
 PSET['simtime'] = 10500.
 
 # set up directory structure
-savefolder = os.path.join('./brunel_simulations_dgp_posterior_mcmc/')
+savefolder = os.path.join('./brunel_simulations_maf_posterior_mcmc/')
 parameterset_dest = os.path.join(savefolder, 'parameters')
 nest_output = os.path.join(savefolder, 'nest_output')
 
