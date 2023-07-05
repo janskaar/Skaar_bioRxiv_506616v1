@@ -236,5 +236,7 @@ ax8.set_xlabel('f ($s^{-1}$)', fontdict={'fontsize': LABEL_FONT_SIZE})
 ax8.set_ylabel('log $P_\phi (\mathbf{r}, f)$', fontdict={'fontsize': LABEL_FONT_SIZE})
 ax8.tick_params(axis='both',  labelsize=TICK_FONT_SIZE)
 
-fig.savefig('results_fig1.pdf', bbox_inches='tight')
+#fig.savefig('results_fig1.pdf', bbox_inches='tight')
+fig.savefig('results_fig1.eps', bbox_inches='tight')
+
 plt.show()
